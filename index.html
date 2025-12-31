@@ -12,7 +12,27 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="light">
+    <div id="splash">
+        <div class="boot-box">
+            <h2 style="margin: 0 0 20px 0; font-size: 32px; border-bottom: 2px dashed var(--boot-text); padding-bottom: 10px; width: 100%; text-align: center;">
+                SYSTEM_BOOT_V1.0
+            </h2>
+            
+            <div id="boot-sequence"></div>
+            
+            <div class="splash-loader-container" id="loader-cont">
+                <div class="splash-loader">
+                    <div class="loader-bar" id="loader"></div>
+                </div>
+                <div class="splash-status" id="splash-text">LOADING CORE MODULES...</div>
+            </div>
+
+            <button id="btn-enter" onclick="startSystem()">[ CLICK TO START ]</button>
+        </div>
+    </div>
+
+    <div class="bg-grid"></div>
     
 </body>
 </html>
