@@ -610,3 +610,23 @@ h2 { border-bottom: 2px solid var(--accent); color: var(--accent); margin-top: 0
     margin: 20px 0; border: 1px solid var(--border); padding: 15px; 
     background: rgba(0,0,0,0.3);
 }
+
+
+#taskbar { position: fixed; bottom: 0; width: 100%; height: var(--taskbar-height); background: var(--bg-taskbar); border-top: 2px solid var(--border); display: flex; align-items: center; padding: 0 10px; z-index: 3000; gap: 10px; }
+.start-btn { background: var(--accent); color: var(--bg-desktop); padding: 6px 18px; font-size: 24px; font-weight: bold; cursor: pointer; box-shadow: 4px 4px 0px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 10px; margin-right: 10px; white-space: nowrap; }
+.start-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px rgba(0,0,0,0.3); }
+#task-list { flex: 1; display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; }
+#task-list::-webkit-scrollbar { display: none; }
+.task-tab { padding: 5px 15px; background: var(--bg-window); border: 2px solid var(--border); color: var(--text-dim); cursor: pointer; font-size: 18px; display: flex; align-items: center; gap: 8px; min-width: 120px; max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-radius: 4px; }
+.task-tab:hover { background: var(--highlight); color: var(--accent); }
+.task-tab.active { background: var(--highlight); color: var(--accent); border-color: var(--accent); box-shadow: inset 0 0 10px var(--accent-glow); }
+.tray { display: flex; gap: 10px; align-items: center; padding-right: 0px; margin-left: auto;}
+.icon-btn { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--accent); padding: 8px; border-radius: 4px; }
+.icon-btn:hover { background: var(--btn-hover); transform: scale(1.1); }
+.icon-btn.muted { opacity: 0.5; filter: grayscale(100%); }
+
+#start-menu { position: absolute; bottom: 55px; left: 10px; width: 250px; background: var(--bg-window); border: 2px solid var(--accent); box-shadow: 10px 10px 0px rgba(0,0,0,0.5); display: none; flex-direction: column; z-index: 2000; }
+#start-menu.show { display: flex; }
+.menu-item { padding: 15px; font-size: 22px; border-bottom: 1px solid var(--border); cursor: pointer; }
+.menu-item:hover { background: var(--accent); color: var(--bg-desktop); }
+
