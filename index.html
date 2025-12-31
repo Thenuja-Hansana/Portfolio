@@ -110,6 +110,104 @@
             </div>
         </div>
     </template>
+
+    <template id="tpl-about">
+        <div class="about-wrapper">
+            <div class="about-header">
+                <div class="profile-frame" onclick="this.style.transform='rotate(360deg)'; setTimeout(()=>this.style.transform='none', 600);">
+                    <div class="pixel-avatar"></div>
+                </div>
+                <div class="header-info">
+                    <h1>Thenuja H. Rajapaksha</h1>
+                    <p>Full Stack Developer based in 
+                        <span class="loc-wrapper">
+                            <span class="loc-trigger">Sri Lanka 🇱🇰</span>
+                            <span class="map-popup">
+                                <span class="map-frame">
+                                    <span style="width:100%; height:100%; background: #aaddcc; display:flex; align-items:center; justify-content:center; color:#555; font-size:12px; font-weight:bold;">
+                                        [ MAP OF GALLE ]
+                                    </span>
+                                    <span class="map-pin">📍</span>
+                                </span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 2px solid var(--border); margin: 15px 0;">
+
+            <div class="about-body">
+                <p class="intro">Helloo.. I'm Thenuja Again..</p>
+                
+                <p class="about-bio">
+                    I'm a <span class="highlight">19 yr old full stack developer</span> obsessed with building <span class="highlight">scalable applications</span> with eye-catching frontend and rock-solid backend.
+                    <br><br>
+                    And I also <span class="highlight">teach students how to code</span> on <a href="#" target="_blank" style="color:var(--accent); text-decoration:underline;">YouTube</a>.
+                    <br><br>
+                    When I’m not building, you’ll probably find me grinding <a href="#" onclick="alert('🎉 SOLVED! (Simulated confetti)')" style="color:var(--accent); cursor:pointer; text-decoration:underline;">LeetCode</a> and shipping <span class="highlight">small video games</span> that I develop :)
+                </p>
+
+                <p style="margin: 25px 0;">Interested in working with me? <a href="#" onclick="wm.open('contact')" class="cta-link">Send me an email!</a></p>
+
+                <div class="section-title">🎓 Education</div>
+                <div class="exp-item">
+                    <span class="exp-role">BSc (Hons) in Computer Science</span>
+                </div>
+                <span class="exp-loc">University of Westminster</span>
+                 <br><br>
+                <div class="exp-item">
+                    <span class="exp-role">Foundation Certification in Higher Education</span>
+                </div>
+                <span class="exp-loc">Informatic Institute of Technology</span>
+
+                <div class="section-title">💼 Work Experience</div>
+                <div class="exp-item">
+                    <span class="exp-role">Junior Frontend Developer</span>
+                    <span class="exp-loc">@ <a href="https://chasien.com" target="_blank" class="work-link">Chasien.com</a></span>
+                </div>
+
+                <div class="section-title">⚡ Other Interests</div>
+                
+                <div class="retro-gallery">
+                    <div class="gallery-card">
+                        <div class="gallery-img-box">
+                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=300&q=80" class="gallery-img" alt="Games">
+                        </div>
+                        <span class="gallery-label">Games 👾</span>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-img-box">
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=300&q=80" class="gallery-img" alt="Hiking">
+                        </div>
+                        <span class="gallery-label">Hiking 🏔️</span>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-img-box">
+                            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=300&q=80" class="gallery-img" alt="Anime">
+                        </div>
+                        <span class="gallery-label">Anime 📺</span>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-img-box">
+                            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=300&q=80" class="gallery-img" alt="Linux">
+                        </div>
+                        <span class="gallery-label">Linux 🐧</span>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-img-box">
+                            <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=300&q=80" class="gallery-img" alt="PC Build">
+                        </div>
+                        <span class="gallery-label">PC Build 🖥️</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
     
 </body>
 </html>
