@@ -409,3 +409,44 @@ h2 { border-bottom: 2px solid var(--accent); color: var(--accent); margin-top: 0
 .retro-gallery::-webkit-scrollbar-track { background: var(--bg-window); }
 .retro-gallery::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 .retro-gallery::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+
+.gallery-card {
+    min-width: 220px;
+    background: var(--bg-window);
+    border: 3px solid var(--border);
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, border-color 0.2s;
+    cursor: pointer;
+}
+.gallery-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+.gallery-img-box {
+    width: 100%;
+    height: 180px;
+    background: #000;
+    overflow: hidden;
+    border: 2px solid var(--text-dim);
+    position: relative;
+}
+
+.gallery-img { 
+    width: 100%; height: 100%; object-fit: cover; 
+    filter: grayscale(100%) contrast(1.2); 
+    transition: filter 0.3s; 
+    opacity: 0.8;
+}
+
+.gallery-card:hover .gallery-img { filter: grayscale(0%) contrast(1); opacity: 1; }
+
+.gallery-label { 
+    font-size: 18px;
+    font-weight: bold; 
+    text-transform: uppercase; color: var(--text-dim);
+}
+.gallery-card:hover .gallery-label { color: var(--accent); }
