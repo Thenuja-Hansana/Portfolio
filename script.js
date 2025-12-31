@@ -49,7 +49,7 @@ const bgm = {
     audio: new Audio('music.mp3'),
     init: function () {
         this.audio.loop = true;
-        this.audio.volume = 0.4;
+        this.audio.volume = 0.1;
     },
     play: function () {
         if (!this.on) return;
