@@ -10,3 +10,60 @@
     --win-radius: 6px;
 }
 
+/* LIGHT MODE (DEFAULT) */
+[data-theme="light"] {
+    --bg-desktop: #f5f7fb;        /* soft slate */
+    --bg-window: #ffffff;         /* clean white */
+    --bg-taskbar: #eef2f7;
+
+    --text-main: #0f172a;         /* slate-900 */
+    --text-dim: #475569;          /* slate-600 */
+
+    --accent: #4f46e5;            /* indigo-600 */
+    --accent-glow: rgba(79, 70, 229, 0.25);
+
+    --border: #cbd5e1;            /* slate-300 */
+    --highlight: #eef2ff;         /* indigo-50 */
+
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --crt-line: rgba(0, 0, 0, 0.015);
+
+    --terminal-bg: #e2e8f0;       /* slate-200 */
+    --terminal-text: #0f172a;
+
+    --btn-hover: rgba(79, 70, 229, 0.1);
+    --danger: #dc2626;            /* red-600 */
+
+    --boot-bg: #020617;
+    --boot-text: #6366f1;
+}
+
+
+/* DARK MODE */
+/* DARK MODE (PROFESSIONAL) */
+[data-theme="dark"] {
+    --bg-desktop: #020617;        /* slate-950 */
+    --bg-window: #020617;
+    --bg-taskbar: #020617;
+
+    --text-main: #e5e7eb;         /* slate-200 */
+    --text-dim: #94a3b8;          /* slate-400 */
+
+    --accent: #6366f1;            /* indigo-500 */
+    --accent-glow: rgba(99, 102, 241, 0.35);
+
+    --border: #1e293b;            /* slate-800 */
+    --highlight: #020617;
+
+    --shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+    --crt-line: rgba(99, 102, 241, 0.035);
+
+    --terminal-bg: #020617;
+    --terminal-text: #e5e7eb;
+
+    --btn-hover: rgba(99, 102, 241, 0.2);
+    --danger: #ef4444;
+
+    --boot-bg: #000000;
+    --boot-text: #818cf8;
+}
