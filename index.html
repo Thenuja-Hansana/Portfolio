@@ -57,6 +57,59 @@
             <span id="clock" style="font-size: 24px;">00:00</span>
         </div>
     </footer>
+
+    <div id="maintenance-popup" onclick="this.style.display='none'">
+        <div class="maintenance-box" onclick="event.stopPropagation()">
+            <div class="maintenance-title">⚠ SYSTEM MIGRATION ALERT</div>
+            <p style="font-size:18px; line-height:1.6; text-align: justify; text-align-last: center;">
+                <strong>Hardware upgrade in progress.</strong><br>
+                I recently purchased a new laptop and am in the process of migrating data. 
+                All of my work is currently saved on my local host (git not github).
+                <br><br>
+                Remote repository access will be re-established shortly.
+            </p>
+            <div class="maintenance-timer" id="countdown-timer">
+                60 Days : 00 : 00 : 00
+            </div>
+            <button onclick="document.getElementById('maintenance-popup').style.display='none'" style="background:var(--accent); color:var(--bg-desktop); border:none; padding:10px 20px; font-weight:bold; cursor:pointer; font-size:18px; border-radius:4px; margin-top:10px;">ACKNOWLEDGE</button>
+        </div>
+    </div>
+
+    <template id="tpl-home">
+        <div class="scanlines"></div>
+        <div class="home-content">
+            <div class="home-header">
+                <h1 class="big-text">HI, I AM THENUJA</h1>
+                <p class="sub-text">FULL STACK JAVASCRIPT DEVELOPER</p>
+                <p class="location-text">Based in Galle, Sri Lanka 🇱🇰</p>
+                
+                <p style="color:var(--accent); animation: blink 1s infinite; margin-top: 10px;">_ WAITING FOR COMMAND...</p>
+            </div>
+
+            <div class="nav-grid">
+                <div class="nav-item" onclick="wm.open('about')">
+                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <span class="nav-label">About</span>
+                </div>
+                <div class="nav-item" onclick="wm.open('links')">
+                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                    <span class="nav-label">Links</span>
+                </div>
+                <div class="nav-item" onclick="wm.open('work')">
+                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z"/></svg>
+                    <span class="nav-label">Work</span>
+                </div>
+                <div class="nav-item" onclick="wm.open('cv')">
+                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <span class="nav-label">CV / Resume</span>
+                </div>
+                <div class="nav-item" onclick="wm.open('contact')">
+                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span class="nav-label">Contact</span>
+                </div>
+            </div>
+        </div>
+    </template>
     
 </body>
 </html>
