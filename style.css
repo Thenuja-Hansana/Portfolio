@@ -1,0 +1,12 @@
+/* * ==========================================
+* VARIABLES & THEME
+* ==========================================
+*/
+:root {
+    --font-main: 'VT323', monospace;
+    --font-clean: 'Outfit', sans-serif;
+    --font-size-base: 24px;
+    --taskbar-height: 50px;
+    --win-radius: 6px;
+}
+
