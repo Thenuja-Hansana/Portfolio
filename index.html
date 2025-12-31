@@ -293,6 +293,231 @@
              </div>
         </div>
     </template>
+
+     <template id="tpl-work">
+        <div class="work-wrapper">
+            <div class="freelance-banner">
+                <strong>By the way I also Do Freelancing work on <a href="#" style="color:inherit; text-decoration: underline;">Upwork</a></strong>
+                <span style="font-size: 16px; color: var(--text-dim);">If you want to get your project done hit me up. Love to work with you :)</span>
+            </div>
+
+            <div class="section-title">🛠️ Tools</div>
+            <div class="tools-grid">
+                <div class="tool-box" onmouseenter="sfx.click()">VS CODE</div>
+                <div class="tool-box" onmouseenter="sfx.click()">Figma</div>
+                <div class="tool-box" onmouseenter="sfx.click()">GitHub</div>
+                <div class="tool-box" onmouseenter="sfx.click()">FireBase</div>
+                <div class="tool-box" onmouseenter="sfx.click()">Slack</div>
+                <div class="tool-box" onmouseenter="sfx.click()">Postman</div>
+            </div>
+
+            <div class="section-title">💻 Development Stack</div>
+            
+            <div class="stack-category">
+                <div class="stack-title">Frontend</div>
+                <div class="tags-container">
+                    <span class="tech-pill">React</span> <span class="tech-pill">Next.js</span> <span class="tech-pill">Tailwind CSS</span> <span class="tech-pill">Shadcn/UI</span> <span class="tech-pill">Syncfusion UI</span> <span class="tech-pill">HTML/CSS</span> <span class="tech-pill">JavaScript</span>
+                </div>
+            </div>
+            
+            <div class="stack-category">
+                <div class="stack-title">Backend</div>
+                <div class="tags-container">
+                    <span class="tech-pill">Node.js</span> <span class="tech-pill">Express.js</span> <span class="tech-pill">REST APIs</span> <span class="tech-pill">Server Actions</span> <span class="tech-pill">Inngest</span> <span class="tech-pill">Appwrite</span> <span class="tech-pill">Supabase</span>
+                </div>
+            </div>
+
+             <div class="stack-category">
+                <div class="stack-title">Mobile</div>
+                <div class="tags-container">
+                    <span class="tech-pill">React Native</span> <span class="tech-pill">Flutter</span> <span class="tech-pill">Expo</span>
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <div class="stack-title">Database Management</div>
+                <div class="tags-container">
+                    <span class="tech-pill">MongoDB</span> <span class="tech-pill">PostgreSQL</span> <span class="tech-pill">DynamoDB</span> <span class="tech-pill">Firestore</span> <span class="tech-pill">Redis</span>
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <div class="stack-title">Version Control</div>
+                <div class="tags-container">
+                    <span class="tech-pill">Git</span> <span class="tech-pill">GitHub</span>
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <div class="stack-title">DevOps & Containerization</div>
+                <div class="tags-container">
+                    <span class="tech-pill">Docker</span> <span class="tech-pill">Kubernetes</span> <span class="tech-pill">GitHub Actions</span> <span class="tech-pill">Vercel</span> <span class="tech-pill">AWS</span> <span class="tech-pill">VPS Deployment</span>
+                </div>
+            </div>
+
+            <div class="section-title">📂 Projects</div>
+            
+            <div class="section-title" style="border:none; margin-top:5px; font-size:12px; opacity:0.7;">FEATURED PROJECT</div>
+            <div class="project-card" onclick="showMaintenance()">
+                <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?finance,chart');"></div>
+                <div class="proj-info">
+                    <h3 class="proj-title">Real-Time Stock Market App with AI Insights</h3>
+                    <p class="proj-brief">Developed a real-time stock market platform featuring live charts, AI-generated insights, daily news summaries, authentication, and scheduled background jobs with full production deployment.</p>
+                    <div class="tags-container">
+                        <span class="tech-pill" style="font-size:12px;">Next.js</span>
+                        <span class="tech-pill" style="font-size:12px;">React</span>
+                        <span class="tech-pill" style="font-size:12px;">Tailwind CSS</span>
+                        <span class="tech-pill" style="font-size:12px;">Supabase (PostgreSQL)</span>
+                        <span class="tech-pill" style="font-size:12px;">Clerk</span>
+                        <span class="tech-pill" style="font-size:12px;">Inngest</span>
+                        <span class="tech-pill" style="font-size:12px;">AI APIs</span>
+                        <span class="tech-pill" style="font-size:12px;">Chart Libraries</span>
+                        <span class="tech-pill" style="font-size:12px;">Vercel</span>
+                    </div>
+                    <div class="proj-links">
+                        <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
+                        <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Git Repo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title" style="border:none; margin-top:20px; font-size:12px; opacity:0.7;">ALL PROJECTS</div>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="proj-banner" style="background-image: url('img/reqruita-landing.png');"></div>
+                    <div class="proj-info">
+                        <h3 class="proj-title">Recruita – Anti-Cheating Desktop Application</h3>
+                        <p class="proj-brief">A cross-platform desktop application built to prevent cheating during online exams by monitoring user activity and enforcing secure assessment conditions. Led the team and handled core system design and implementation.</p>
+                        <div class="tags-container">
+                            <span class="tech-pill" style="font-size:10px;">Electron</span> <span class="tech-pill" style="font-size:10px;">JavaScript</span> <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">System APIs</span> <span class="tech-pill" style="font-size:10px;">WebSockets</span> <span class="tech-pill" style="font-size:10px;">SQLite</span> <span class="tech-pill" style="font-size:10px;">Git</span>
+                        </div>
+                        <div class="proj-links">
+                            <a href="#" target="_blank" class="proj-btn">Live Site</a>
+                            <a href="#" target="_blank" class="proj-btn">Git Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.open('https://chasien.com', '_blank')">
+                    <div class="proj-banner" style="background-image: url('img/chasien-landing.png');"></div>
+                    <div class="proj-info">
+                        <h3 class="proj-title">Chasien.com – Agency Website</h3>
+                        <p class="proj-brief">A production-ready agency website developed for scalability and performance, featuring a modern frontend and a secure, well-structured backend. Owned backend development and collaborated closely with the frontend team.</p>
+                        <div class="tags-container">
+                            <span class="tech-pill" style="font-size:10px;">HTML</span> <span class="tech-pill" style="font-size:10px;">CSS</span> <span class="tech-pill" style="font-size:10px;">JavaScript</span>
+                        </div>
+                        <div class="proj-links">
+                            <a href="https://chasien.com" target="_blank" class="proj-btn" onclick="event.stopPropagation()">Live Site</a>
+                            <a href="#" target="_blank" class="proj-btn" onclick="event.stopPropagation()">Git Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="showMaintenance()">
+                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?server,code');"></div>
+                    <div class="proj-info">
+                        <h3 class="proj-title">Production-Ready Backend API</h3>
+                        <p class="proj-brief">Built a scalable REST API implementing authentication, authorization, subscriptions, background workflows, and email notifications, deployed on a production VPS with security and monitoring in place.</p>
+                        <div class="tags-container">
+                            <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">Express.js</span> <span class="tech-pill" style="font-size:10px;">MongoDB</span> <span class="tech-pill" style="font-size:10px;">JWT</span> <span class="tech-pill" style="font-size:10px;">Arcjet</span> <span class="tech-pill" style="font-size:10px;">Docker</span> <span class="tech-pill" style="font-size:10px;">ESLint</span> <span class="tech-pill" style="font-size:10px;">Prettier</span> <span class="tech-pill" style="font-size:10px;">VPS Hosting</span> <span class="tech-pill" style="font-size:10px;">Email Services</span>
+                        </div>
+                        <div class="proj-links">
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Git Repo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="showMaintenance()">
+                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?dashboard,analytics');"></div>
+                    <div class="proj-info">
+                        <h3 class="proj-title">Full Stack React Admin Dashboard</h3>
+                        <p class="proj-brief">Created a full-featured admin dashboard with authentication, analytics charts, data tables, AI-powered trip generation, and real-time data management for enterprise use cases.</p>
+                        <div class="tags-container">
+                            <span class="tech-pill" style="font-size:10px;">React</span> <span class="tech-pill" style="font-size:10px;">Tailwind CSS</span> <span class="tech-pill" style="font-size:10px;">Syncfusion</span> <span class="tech-pill" style="font-size:10px;">Appwrite</span> <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">Express.js</span> <span class="tech-pill" style="font-size:10px;">AI APIs</span> <span class="tech-pill" style="font-size:10px;">Git</span> <span class="tech-pill" style="font-size:10px;">GitHub</span>
+                        </div>
+                        <div class="proj-links">
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Git Repo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="showMaintenance()">
+                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?upload,cloud');"></div>
+                    <div class="proj-info">
+                        <h3 class="proj-title">Next.js Image Upload App</h3>
+                        <p class="proj-brief">Built a secure image upload application with user authentication, cloud storage integration, and optimized media handling using a modern full-stack Next.js architecture.</p>
+                        <div class="tags-container">
+                            <span class="tech-pill" style="font-size:10px;">Next.js</span> <span class="tech-pill" style="font-size:10px;">React</span> <span class="tech-pill" style="font-size:10px;">UploadThing</span> <span class="tech-pill" style="font-size:10px;">Clerk</span> <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">Vercel</span>
+                        </div>
+                        <div class="proj-links">
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Git Repo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="showMaintenance()">
+                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?cinema,movie');"></div>
+                    <div class="proj-info">
+                        <h3 class="proj-title">React Native Movie App</h3>
+                        <p class="proj-brief">Developed a cross-platform mobile application to browse, search, and view movie details using a public API, featuring optimized data fetching and smooth navigation.</p>
+                        <div class="tags-container">
+                            <span class="tech-pill" style="font-size:10px;">React Native</span> <span class="tech-pill" style="font-size:10px;">Expo</span> <span class="tech-pill" style="font-size:10px;">JavaScript</span> <span class="tech-pill" style="font-size:10px;">TMDB API</span> <span class="tech-pill" style="font-size:10px;">Appwrite</span> <span class="tech-pill" style="font-size:10px;">Custom Hooks</span>
+                        </div>
+                        <div class="proj-links">
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Git Repo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="showMaintenance()">
+                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?cloud,pipeline');"></div>
+                    <div class="proj-info">
+                        <h3 class="proj-title">Production API with DevOps Pipeline</h3>
+                        <p class="proj-brief">Designed and deployed a production-grade API with CI/CD automation, containerization, Kubernetes orchestration, testing, and secure cloud infrastructure following DevOps best practices.</p>
+                        <div class="tags-container">
+                            <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">MongoDB</span> <span class="tech-pill" style="font-size:10px;">Docker</span> <span class="tech-pill" style="font-size:10px;">Kubernetes</span> <span class="tech-pill" style="font-size:10px;">GitHub Actions</span> <span class="tech-pill" style="font-size:10px;">AWS (EC2, ECR, IAM)</span> <span class="tech-pill" style="font-size:10px;">CI/CD Tools</span>
+                        </div>
+                        <div class="proj-links">
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Git Repo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="showMaintenance()">
+                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?software,saas');"></div>
+                    <div class="proj-info">
+                        <h3 class="proj-title">AI-Powered SaaS Platform</h3>
+                        <p class="proj-brief">Built and launched a subscription-based SaaS platform with AI-driven features, authentication, billing, session history, error monitoring, and full production deployment.</p>
+                        <div class="tags-container">
+                            <span class="tech-pill" style="font-size:10px;">Next.js</span> <span class="tech-pill" style="font-size:10px;">React</span> <span class="tech-pill" style="font-size:10px;">Tailwind CSS</span> <span class="tech-pill" style="font-size:10px;">Supabase</span> <span class="tech-pill" style="font-size:10px;">Clerk</span> <span class="tech-pill" style="font-size:10px;">Stripe</span> <span class="tech-pill" style="font-size:10px;">AI APIs</span> <span class="tech-pill" style="font-size:10px;">Sentry</span> <span class="tech-pill" style="font-size:10px;">Vercel</span>
+                        </div>
+                        <div class="proj-links">
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
+                            <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Git Repo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">📂 Other Dev Projects</div>
+            <ul class="other-projects">
+                <li>This website !</li>
+                <li>That's It for now, there are some more projects Im working on in the background That ill release soon hopefully.. :)</li>
+                <li>Check out my previous commercial projects on <a href="https://chasien.com" target="_blank" style="color:var(--accent)">chasien.com</a></li>
+            </ul>
+            
+            <br>
+            <div style="text-align: center;">
+                <a href="#" target="_blank" class="footer-github">See more on GitHub -></a>
+            </div>
+        </div>
+    </template>
     
 </body>
 </html>
