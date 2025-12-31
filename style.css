@@ -630,3 +630,41 @@ h2 { border-bottom: 2px solid var(--accent); color: var(--accent); margin-top: 0
 .menu-item { padding: 15px; font-size: 22px; border-bottom: 1px solid var(--border); cursor: pointer; }
 .menu-item:hover { background: var(--accent); color: var(--bg-desktop); }
 
+
+@media (max-width: 768px) {
+    :root { --font-size-base: 20px; }
+    #task-list { display: none !important; }
+    #taskbar { padding: 0 8px; justify-content: space-between; }
+    .start-btn { padding: 6px 12px; font-size: 20px; }
+    .tray { margin-left: 0; }
+    
+    .window {
+        position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: var(--taskbar-height) !important;
+        width: 100vw !important; height: auto !important; margin: 0 !important; transform: none !important;
+        border: none !important; border-top: 1px solid var(--border) !important; border-radius: 0 !important; z-index: 100 !important;
+        max-width: none; max-height: none;
+    }
+    .window.minimized { transform: translateY(120%) !important; }
+    #win-home { width: 100vw !important; height: auto !important; max-width: none !important; max-height: none !important; }
+    
+    .home-header { flex: 0 !important; margin-top: 60px; margin-bottom: 20px; justify-content: flex-start !important; }
+    .nav-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px 20px; margin-top: 0 !important; border-top: none; background: transparent; }
+    .nav-item { border: 2px solid var(--border); background: rgba(0,0,0,0.03); padding: 15px 5px; border-radius: 8px; }
+    .nav-item:last-child { grid-column: span 2; width: 60%; margin: 0 auto; }
+    .nav-icon { width: 64px; height: 64px; margin-bottom: 8px; }
+    .nav-label { font-size: 24px; font-weight: normal; }
+
+    .social-grid { grid-template-columns: repeat(2, 1fr); }
+    .big-text { font-size: 42px; }
+    .sub-text { font-size: 20px; }
+    .location-text { font-size: 16px; margin-bottom: 10px; }
+    .resize-handle { display: none; }
+    .window-header { cursor: default; } 
+    .btn-min { display: none; }
+
+    .about-header { flex-direction: column; text-align: center; gap: 15px; }
+    .map-popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) !important; width: 80%; }
+    
+    .tools-grid { grid-template-columns: repeat(3, 1fr); }
+    .projects-grid { grid-template-columns: 1fr; }
+}
