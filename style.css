@@ -67,3 +67,19 @@
     --boot-bg: #000000;
     --boot-text: #818cf8;
 }
+* { box-sizing: border-box; }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    background-color: var(--bg-desktop);
+    color: var(--text-main);
+    transition: background 0.3s;
+    user-select: none;
+    cursor: default;
+    overscroll-behavior: none;
+}
