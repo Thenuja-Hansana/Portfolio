@@ -244,10 +244,10 @@ body, html {
 .resize-handle { position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; cursor: nwse-resize; background: linear-gradient(135deg, transparent 50%, var(--accent) 50%); opacity: 0.5; border-radius: 0 0 var(--win-radius) 0; }
 .resize-handle:hover { opacity: 1; }
 
-* * ==========================================
-    * HOME / TERMINAL SPECIFICS
-    * ==========================================
-    */
+/* ==========================================
+   HOME / TERMINAL SPECIFICS
+   ========================================== */
+   
 #win-home { z-index: 50 !important; border: 4px solid var(--border); box-shadow: 0 0 50px var(--accent-glow); }
 #win-home .window-header { cursor: default; background: var(--terminal-bg); }
 #win-home .window-title { color: var(--terminal-text); text-shadow: none; }
