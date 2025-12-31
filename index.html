@@ -33,6 +33,30 @@
     </div>
 
     <div class="bg-grid"></div>
+
+    <main id="desktop">
+        </main>
+
+    <div id="start-menu">
+        <div class="menu-item" onclick="wm.open('home'); wm.toggleStart()">🏠 HOME</div>
+        <div class="menu-item" onclick="location.reload()">🔄 REBOOT</div>
+        <div class="menu-item" onclick="alert('System Halted.')">🔴 POWER OFF</div>
+    </div>
+
+    <footer id="taskbar">
+        <div class="start-btn" onclick="wm.toggleStart()">
+            START
+        </div>
+        
+        <div id="task-list"></div>
+
+        <div class="tray">
+            <button class="icon-btn" id="btn-bgm" title="Toggle Music">🎵</button>
+            <button class="icon-btn" id="btn-sfx" title="Toggle SFX">🔊</button>
+            <button class="icon-btn" id="btn-theme" title="Toggle Theme">☀/☾</button>
+            <span id="clock" style="font-size: 24px;">00:00</span>
+        </div>
+    </footer>
     
 </body>
 </html>
