@@ -247,7 +247,7 @@ body, html {
 /* ==========================================
    HOME / TERMINAL SPECIFICS
    ========================================== */
-   
+
 #win-home { z-index: 50 !important; border: 4px solid var(--border); box-shadow: 0 0 50px var(--accent-glow); }
 #win-home .window-header { cursor: default; background: var(--terminal-bg); }
 #win-home .window-title { color: var(--terminal-text); text-shadow: none; }
@@ -358,8 +358,8 @@ h2 { border-bottom: 2px solid var(--accent); color: var(--accent); margin-top: 0
 .profile-frame:active { transform: rotate(360deg); }
 .pixel-avatar {
     width: 100%; height: 100%; background: #ccc; border-radius: 8px;
-    background-image: linear-gradient(135deg, #e0e8e3 25%, #9abfb0 25%, #9abfb0 50%, #e0e8e3 50%, #e0e8e3 75%, #9abfb0 75%, #9abfb0 100%);
-    background-size: 20px 20px;
+    background-image: url('img/profile.png');
+    background-size: 180px 180px;
 }
 .header-info h1 { font-size: 32px; font-weight: 800; margin: 0; color: var(--text-main); line-height: 1.1; }
 .header-info p { font-size: 18px; color: var(--text-dim); margin: 5px 0 0 0; }
