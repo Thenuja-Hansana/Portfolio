@@ -88,6 +88,10 @@
     <!-- Start Menu -->
     <div id="start-menu">
         <div class="menu-item" onclick="wm.open('home'); wm.toggleStart()">🏠 HOME</div>
+        <div class="menu-divider">🎮 GAMES</div>
+        <div class="menu-item menu-game" onclick="wm.open('tictactoe'); wm.toggleStart()">❌ Tic-Tac-Toe</div>
+        <div class="menu-item menu-game" onclick="wm.open('snake'); wm.toggleStart()">🐍 Snake</div>
+        <div class="menu-divider" style="border:none;"></div>
         <div class="menu-item" onclick="location.reload()">🔄 REBOOT</div>
         <div class="menu-item" onclick="alert('System Halted.')">🔴 POWER OFF</div>
     </div>
@@ -782,6 +786,54 @@
                 </svg>
                 <span>Instagram</span>
             </a>
+        </div>
+    </template>
+
+    <!-- TIC-TAC-TOE -->
+    <template id="tpl-tictactoe">
+        <div class="game-wrapper">
+            <div class="game-header-bar">
+                <h2 style="border:none; margin:0; font-size:22px;">TIC_TAC_TOE.EXE</h2>
+                <button class="game-reset-btn" onclick="tttReset()">↻ NEW GAME</button>
+            </div>
+            <div class="ttt-status" id="ttt-status">X's TURN</div>
+            <div class="ttt-board" id="ttt-board">
+                <div class="ttt-cell" data-i="0" onclick="tttMove(this)"></div>
+                <div class="ttt-cell" data-i="1" onclick="tttMove(this)"></div>
+                <div class="ttt-cell" data-i="2" onclick="tttMove(this)"></div>
+                <div class="ttt-cell" data-i="3" onclick="tttMove(this)"></div>
+                <div class="ttt-cell" data-i="4" onclick="tttMove(this)"></div>
+                <div class="ttt-cell" data-i="5" onclick="tttMove(this)"></div>
+                <div class="ttt-cell" data-i="6" onclick="tttMove(this)"></div>
+                <div class="ttt-cell" data-i="7" onclick="tttMove(this)"></div>
+                <div class="ttt-cell" data-i="8" onclick="tttMove(this)"></div>
+            </div>
+            <div class="ttt-score">
+                <div class="ttt-score-item"><span class="ttt-x-color">X</span> <span id="ttt-x-score">0</span></div>
+                <div class="ttt-score-item">DRAW <span id="ttt-d-score">0</span></div>
+                <div class="ttt-score-item"><span class="ttt-o-color">O</span> <span id="ttt-o-score">0</span></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- SNAKE -->
+    <template id="tpl-snake">
+        <div class="game-wrapper">
+            <div class="game-header-bar">
+                <h2 style="border:none; margin:0; font-size:22px;">SNAKE.EXE</h2>
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <span class="snake-score-display">SCORE: <span id="snake-score">0</span></span>
+                    <button class="game-reset-btn" id="snake-start-btn" onclick="snakeStart()">▶ START</button>
+                </div>
+            </div>
+            <div class="snake-controls-hint">Use <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to move</div>
+            <div class="snake-canvas-wrap">
+                <canvas id="snake-canvas" width="400" height="400"></canvas>
+                <div class="snake-overlay" id="snake-overlay">
+                    <div class="snake-overlay-text">Press START to play</div>
+                </div>
+            </div>
+            <div class="snake-high-score">HIGH SCORE: <span id="snake-high">0</span></div>
         </div>
     </template>
 

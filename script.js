@@ -316,7 +316,9 @@ class WindowManager {
             work: { w: '1000px', h: '750px' },
             cv: { w: '950px', h: '800px' },
             home: { w: '800px', h: '600px' },
-            links: { w: '600px', h: '450px' }
+            links: { w: '600px', h: '450px' },
+            tictactoe: { w: '420px', h: '520px' },
+            snake: { w: '460px', h: '580px' }
         };
         const size = sizes[id] || { w: '600px', h: '450px' };
         win.style.width = size.w;
@@ -534,3 +536,268 @@ document.getElementById('btn-theme').onclick = function () {
 
     body.setAttribute('data-theme', next);
 };
+
+
+/* ==========================================
+ * TIC-TAC-TOE GAME
+ * ========================================== */
+let tttBoard = ['', '', '', '', '', '', '', '', ''];
+let tttTurn = 'X';
+let tttActive = true;
+let tttScores = { X: 0, O: 0, D: 0 };
+const tttWins = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
+];
+
+window.tttMove = function (cell) {
+    const i = parseInt(cell.getAttribute('data-i'));
+    if (tttBoard[i] !== '' || !tttActive) return;
+    sfx.click();
+
+    tttBoard[i] = tttTurn;
+    cell.textContent = tttTurn;
+    cell.classList.add(tttTurn.toLowerCase());
+
+    // Check win
+    const winCombo = tttWins.find(combo =>
+        combo.every(idx => tttBoard[idx] === tttTurn)
+    );
+
+    if (winCombo) {
+        tttActive = false;
+        sfx.open();
+        const statusEl = document.getElementById('ttt-status');
+        if (statusEl) statusEl.textContent = `${tttTurn} WINS! 🎉`;
+
+        // Highlight winning cells
+        const board = document.getElementById('ttt-board');
+        if (board) {
+            const cells = board.querySelectorAll('.ttt-cell');
+            winCombo.forEach(idx => cells[idx].classList.add('win'));
+            cells.forEach(c => c.classList.add('disabled'));
+        }
+
+        tttScores[tttTurn]++;
+        tttUpdateScores();
+        return;
+    }
+
+    // Check draw
+    if (!tttBoard.includes('')) {
+        tttActive = false;
+        const statusEl = document.getElementById('ttt-status');
+        if (statusEl) statusEl.textContent = "IT'S A DRAW!";
+        tttScores.D++;
+        tttUpdateScores();
+        return;
+    }
+
+    tttTurn = tttTurn === 'X' ? 'O' : 'X';
+    const statusEl = document.getElementById('ttt-status');
+    if (statusEl) statusEl.textContent = `${tttTurn}'s TURN`;
+};
+
+window.tttReset = function () {
+    sfx.click();
+    tttBoard = ['', '', '', '', '', '', '', '', ''];
+    tttTurn = 'X';
+    tttActive = true;
+
+    const board = document.getElementById('ttt-board');
+    if (board) {
+        const cells = board.querySelectorAll('.ttt-cell');
+        cells.forEach(c => {
+            c.textContent = '';
+            c.className = 'ttt-cell';
+        });
+    }
+
+    const statusEl = document.getElementById('ttt-status');
+    if (statusEl) statusEl.textContent = "X's TURN";
+};
+
+function tttUpdateScores() {
+    const xEl = document.getElementById('ttt-x-score');
+    const oEl = document.getElementById('ttt-o-score');
+    const dEl = document.getElementById('ttt-d-score');
+    if (xEl) xEl.textContent = tttScores.X;
+    if (oEl) oEl.textContent = tttScores.O;
+    if (dEl) dEl.textContent = tttScores.D;
+}
+
+
+/* ==========================================
+ * SNAKE GAME (WASD)
+ * ========================================== */
+let snakeInterval = null;
+let snakeState = null;
+
+window.snakeStart = function () {
+    sfx.click();
+    const canvas = document.getElementById('snake-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const size = 20;
+    const cols = canvas.width / size;
+    const rows = canvas.height / size;
+
+    // Clear previous interval
+    if (snakeInterval) clearInterval(snakeInterval);
+
+    // State
+    snakeState = {
+        snake: [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }],
+        dir: { x: 1, y: 0 },
+        nextDir: { x: 1, y: 0 },
+        food: null,
+        score: 0,
+        alive: true
+    };
+
+    // Place food
+    placeFood();
+
+    // Hide overlay
+    const overlay = document.getElementById('snake-overlay');
+    if (overlay) overlay.classList.add('hidden');
+
+    // Update button
+    const btn = document.getElementById('snake-start-btn');
+    if (btn) { btn.textContent = '↻ RESTART'; btn.onclick = snakeStart; }
+
+    // Score display
+    const scoreEl = document.getElementById('snake-score');
+    if (scoreEl) scoreEl.textContent = '0';
+
+    function placeFood() {
+        let pos;
+        do {
+            pos = { x: Math.floor(Math.random() * cols), y: Math.floor(Math.random() * rows) };
+        } while (snakeState.snake.some(s => s.x === pos.x && s.y === pos.y));
+        snakeState.food = pos;
+    }
+
+    function draw() {
+        // Background
+        ctx.fillStyle = '#0a0a1a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Grid
+        ctx.strokeStyle = 'rgba(99, 102, 241, 0.06)';
+        ctx.lineWidth = 0.5;
+        for (let x = 0; x < cols; x++) {
+            for (let y = 0; y < rows; y++) {
+                ctx.strokeRect(x * size, y * size, size, size);
+            }
+        }
+
+        // Food
+        if (snakeState.food) {
+            ctx.fillStyle = '#f472b6';
+            ctx.shadowColor = '#f472b6';
+            ctx.shadowBlur = 10;
+            ctx.beginPath();
+            ctx.arc(
+                snakeState.food.x * size + size / 2,
+                snakeState.food.y * size + size / 2,
+                size / 2 - 2, 0, Math.PI * 2
+            );
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+
+        // Snake
+        snakeState.snake.forEach((seg, i) => {
+            const ratio = 1 - (i / snakeState.snake.length) * 0.5;
+            if (i === 0) {
+                ctx.fillStyle = '#818cf8';
+                ctx.shadowColor = '#818cf8';
+                ctx.shadowBlur = 8;
+            } else {
+                ctx.fillStyle = `rgba(129, 140, 248, ${ratio})`;
+                ctx.shadowBlur = 0;
+            }
+            const pad = i === 0 ? 1 : 2;
+            ctx.fillRect(seg.x * size + pad, seg.y * size + pad, size - pad * 2, size - pad * 2);
+            ctx.shadowBlur = 0;
+        });
+    }
+
+    function update() {
+        if (!snakeState.alive) return;
+
+        snakeState.dir = { ...snakeState.nextDir };
+
+        const head = {
+            x: snakeState.snake[0].x + snakeState.dir.x,
+            y: snakeState.snake[0].y + snakeState.dir.y
+        };
+
+        // Wall collision
+        if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows) {
+            gameOver();
+            return;
+        }
+
+        // Self collision
+        if (snakeState.snake.some(s => s.x === head.x && s.y === head.y)) {
+            gameOver();
+            return;
+        }
+
+        snakeState.snake.unshift(head);
+
+        // Eating food
+        if (snakeState.food && head.x === snakeState.food.x && head.y === snakeState.food.y) {
+            snakeState.score += 10;
+            sfx.click();
+            const scoreEl = document.getElementById('snake-score');
+            if (scoreEl) scoreEl.textContent = snakeState.score;
+            placeFood();
+        } else {
+            snakeState.snake.pop();
+        }
+
+        draw();
+    }
+
+    function gameOver() {
+        snakeState.alive = false;
+        clearInterval(snakeInterval);
+        sfx.close();
+
+        // High score
+        const highEl = document.getElementById('snake-high');
+        const currentHigh = parseInt(highEl?.textContent || '0');
+        if (snakeState.score > currentHigh && highEl) {
+            highEl.textContent = snakeState.score;
+        }
+
+        // Show overlay
+        const overlay = document.getElementById('snake-overlay');
+        const overlayText = overlay?.querySelector('.snake-overlay-text');
+        if (overlayText) overlayText.textContent = `GAME OVER! Score: ${snakeState.score}`;
+        if (overlay) overlay.classList.remove('hidden');
+
+        // Update button
+        const btn = document.getElementById('snake-start-btn');
+        if (btn) btn.textContent = '▶ PLAY AGAIN';
+    }
+
+    draw();
+    snakeInterval = setInterval(update, 120);
+};
+
+// WASD controls — global listener
+document.addEventListener('keydown', (e) => {
+    if (!snakeState || !snakeState.alive) return;
+    const key = e.key.toLowerCase();
+    const dir = snakeState.dir;
+
+    if (key === 'w' && dir.y !== 1) snakeState.nextDir = { x: 0, y: -1 };
+    if (key === 's' && dir.y !== -1) snakeState.nextDir = { x: 0, y: 1 };
+    if (key === 'a' && dir.x !== 1) snakeState.nextDir = { x: -1, y: 0 };
+    if (key === 'd' && dir.x !== -1) snakeState.nextDir = { x: 1, y: 0 };
+});
