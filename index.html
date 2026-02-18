@@ -1,72 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <!-- SEO Meta -->
+    <title>Thenuja Hansana | Full Stack Developer Portfolio</title>
+    <meta name="description"
+        content="Hi, I'm Thenuja Hansana — a 19-year-old Full Stack JavaScript Developer from Sri Lanka. I build scalable web apps, production APIs, and teach coding on YouTube.">
+    <meta name="keywords"
+        content="Thenuja Hansana, Full Stack Developer, JavaScript, React, Next.js, Node.js, Portfolio, Sri Lanka">
+    <meta name="author" content="Thenuja H. Rajapaksha">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Thenuja Hansana | Full Stack Developer">
+    <meta property="og:description"
+        content="Full Stack JavaScript Developer building scalable applications with eye-catching frontend and rock-solid backend.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thenujahansana.dev">
+    <meta property="og:image" content="img/profile.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thenuja Hansana | Full Stack Developer">
+    <meta name="twitter:description" content="Full Stack JavaScript Developer building scalable applications.">
+    <meta name="twitter:image" content="img/profile.png">
+
     <link rel="icon" type="image/icon" href="img/logo.png">
 
-    <title>Thenuja Hansana | Portfolio</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Thenuja H. Rajapaksha",
+        "alternateName": "Thenuja Hansana",
+        "jobTitle": "Full Stack Developer",
+        "url": "https://thenujahansana.dev",
+        "email": "contact.thenujahansana@gmail.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/thenuja-rajapaksha/",
+            "https://github.com/Thenuja-Hansana",
+            "https://x.com/ThenujaCodes",
+            "https://www.youtube.com/@ThenujaCodes",
+            "https://www.instagram.com/thenuja_rj/"
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Westminster"
+        },
+        "knowsAbout": ["JavaScript", "React", "Next.js", "Node.js", "Docker", "AWS", "MongoDB", "PostgreSQL"]
+    }
+    </script>
 </head>
+
 <body data-theme="light">
+    <!-- Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Splash Screen -->
     <div id="splash">
         <div class="boot-box">
-            <h2 style="margin: 0 0 20px 0; font-size: 32px; border-bottom: 2px dashed var(--boot-text); padding-bottom: 10px; width: 100%; text-align: center;">
-                SYSTEM_BOOT_V1.0
-            </h2>
-            
+            <h2 class="boot-title">SYSTEM_BOOT_V2.0</h2>
             <div id="boot-sequence"></div>
-            
             <div class="splash-loader-container" id="loader-cont">
                 <div class="splash-loader">
                     <div class="loader-bar" id="loader"></div>
                 </div>
                 <div class="splash-status" id="splash-text">LOADING CORE MODULES...</div>
             </div>
-
-            <button id="btn-enter" onclick="startSystem()">[ CLICK TO START ]</button>
+            <button id="btn-enter" onclick="startSystem()">[ INITIALIZE SYSTEM ]</button>
         </div>
     </div>
 
     <div class="bg-grid"></div>
 
-    <main id="desktop">
-        </main>
+    <main id="desktop"></main>
 
+    <!-- Start Menu -->
     <div id="start-menu">
         <div class="menu-item" onclick="wm.open('home'); wm.toggleStart()">🏠 HOME</div>
         <div class="menu-item" onclick="location.reload()">🔄 REBOOT</div>
         <div class="menu-item" onclick="alert('System Halted.')">🔴 POWER OFF</div>
     </div>
 
+    <!-- Taskbar -->
     <footer id="taskbar">
-        <div class="start-btn" onclick="wm.toggleStart()">
-            START
-        </div>
-        
+        <div class="start-btn" onclick="wm.toggleStart()">START</div>
         <div id="task-list"></div>
-
         <div class="tray">
             <button class="icon-btn" id="btn-bgm" title="Toggle Music">🎵</button>
             <button class="icon-btn" id="btn-sfx" title="Toggle SFX">🔊</button>
             <button class="icon-btn" id="btn-theme" title="Toggle Theme">☀/☾</button>
-            <span id="clock" style="font-size: 24px;">00:00</span>
+            <span id="clock" style="font-size: 22px; letter-spacing: 1px;">00:00</span>
         </div>
     </footer>
 
+    <!-- Maintenance Popup -->
     <div id="maintenance-popup" onclick="this.style.display='none'">
         <div class="maintenance-box" onclick="event.stopPropagation()">
             <div class="maintenance-title">⚠ SYSTEM MIGRATION ALERT</div>
-            <p style="font-size:18px; line-height:1.6; text-align: justify; text-align-last: center;">
+            <p style="font-size:17px; line-height:1.6; text-align: justify; text-align-last: center;">
                 <strong>Hardware upgrade in progress.</strong><br>
-                I recently purchased a new laptop and I am in the process of migrating all the data. 
+                I recently purchased a new laptop and I am in the process of migrating all the data.
                 All of my work has been saved on my local host (git not github).
                 <br><br>
                 Remote repository access will be re-established shortly.
@@ -74,63 +118,87 @@
             <div class="maintenance-timer" id="countdown-timer">
                 30 Days : 00 : 00 : 00
             </div>
-            <button onclick="document.getElementById('maintenance-popup').style.display='none'" style="background:var(--accent); color:var(--bg-desktop); border:none; padding:10px 20px; font-weight:bold; cursor:pointer; font-size:18px; border-radius:4px; margin-top:10px;">ACKNOWLEDGE</button>
+            <button class="maintenance-ack-btn"
+                onclick="document.getElementById('maintenance-popup').style.display='none'">ACKNOWLEDGE</button>
         </div>
     </div>
 
+    <!-- ==========================================
+         TEMPLATES
+         ========================================== -->
+
+    <!-- HOME -->
     <template id="tpl-home">
         <div class="scanlines"></div>
         <div class="home-content">
             <div class="home-header">
                 <h1 class="big-text">HI, I AM THENUJA</h1>
                 <p class="sub-text">FULL STACK {JAVASCRIPT} DEVELOPER</p>
-                <!--<p class="location-text">Based in Galle, Sri Lanka 🇱🇰</p>-->
-                
-                
-                <p style="color:var(--accent); animation: blink 1s infinite; margin-top: 10px;">_ WAITING FOR COMMAND...</p>
+                <div class="rotating-subtitle">
+                    <span>⚡ Building Scalable Web Apps</span>
+                    <span>🛠️ DevOps & Cloud Infrastructure</span>
+                    <span>🎨 UI/UX Craftsmanship</span>
+                </div>
+                <p class="cursor-blink">_ WAITING FOR COMMAND...</p>
             </div>
 
             <div class="nav-grid">
                 <div class="nav-item" onclick="wm.open('about')">
-                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
                     <span class="nav-label">About</span>
                 </div>
                 <div class="nav-item" onclick="wm.open('links')">
-                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
+                    </svg>
                     <span class="nav-label">Links</span>
                 </div>
                 <div class="nav-item" onclick="wm.open('work')">
-                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z"/></svg>
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z" />
+                    </svg>
                     <span class="nav-label">Work</span>
                 </div>
                 <div class="nav-item" onclick="wm.open('cv')">
-                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                    </svg>
                     <span class="nav-label">CV / Resume</span>
                 </div>
                 <div class="nav-item" onclick="wm.open('contact')">
-                    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
                     <span class="nav-label">Contact</span>
                 </div>
             </div>
         </div>
     </template>
 
+    <!-- ABOUT -->
     <template id="tpl-about">
         <div class="about-wrapper">
             <div class="about-header">
-                <div class="profile-frame" onclick="this.style.transform='rotate(360deg)'; setTimeout(()=>this.style.transform='none', 600);">
-                    <div class="pixel-avatar">
-                        
-                    </div>
+                <div class="profile-frame"
+                    onclick="this.style.transform='rotate(360deg)'; setTimeout(()=>this.style.transform='none', 600);">
+                    <div class="pixel-avatar"></div>
                 </div>
                 <div class="header-info">
                     <h1>Thenuja H. Rajapaksha</h1>
-                    <p>Full Stack Developer based in 
+                    <p>Full Stack Developer based in
                         <span class="loc-wrapper">
                             <span class="loc-trigger">Sri Lanka 🇱🇰</span>
                             <span class="map-popup">
                                 <span class="map-frame">
-                                    <span style="width:100%; height:100%; background: #aaddcc; display:flex; align-items:center; justify-content:center; color:#555; font-size:12px; font-weight:bold;">
+                                    <span
+                                        style="width:100%; height:100%; background: #aaddcc; display:flex; align-items:center; justify-content:center; color:#555; font-size:12px; font-weight:bold;">
                                         [ MAP OF GALLE ]
                                     </span>
                                     <span class="map-pin">📍</span>
@@ -141,162 +209,180 @@
                 </div>
             </div>
 
-            <hr style="border: 0; border-top: 2px solid var(--border); margin: 15px 0;">
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 15px 0;">
 
             <div class="about-body">
-                <p class="intro">Helloo.. I'm Thenuja Again..</p>
-                
-                <p class="about-bio">
-                    I'm a <span class="highlight">19 yr old full stack developer</span> obsessed with building <span class="highlight">scalable applications</span> with eye-catching frontend and rock-solid backend.
+                <p class="intro reveal">Helloo.. I'm Thenuja Again..</p>
+
+                <p class="about-bio reveal">
+                    I'm a <span class="highlight">19 yr old full stack developer</span> obsessed with building <span
+                        class="highlight">scalable applications</span> with eye-catching frontend and rock-solid
+                    backend.
                     <br><br>
-                    And I also <span class="highlight">teach students how to code</span> on <a href="#" target="_blank" style="color:var(--accent); text-decoration:underline;">YouTube</a>.
+                    And I also <span class="highlight">teach students how to code</span> on <a href="#" target="_blank"
+                        style="color:var(--accent); text-decoration:underline;">YouTube</a>.
                     <br><br>
-                    When I’m not building, you’ll probably find me grinding <a href="#" onclick="alert('🎉 SOLVED! (Simulated confetti)')" style="color:var(--accent); cursor:pointer; text-decoration:underline;">LeetCode</a> and shipping <span class="highlight">small video games</span> that I develop :)
+                    When I'm not building, you'll probably find me grinding <a href="#"
+                        onclick="alert('🎉 SOLVED! (Simulated confetti)')"
+                        style="color:var(--accent); cursor:pointer; text-decoration:underline;">LeetCode</a> and
+                    shipping <span class="highlight">small video games</span> that I develop :)
                 </p>
 
-                <p style="margin: 25px 0;">Interested in working with me? <a href="#" onclick="wm.open('contact')" class="cta-link">Send me an email!</a></p>
+                <p class="reveal" style="margin: 25px 0;">Interested in working with me? <a href="#"
+                        onclick="wm.open('contact')" class="cta-link">Send me an email!</a></p>
 
-                <div class="section-title">🎓 Education</div>
-                <div class="exp-item">
-                    <span class="exp-role">BSc (Hons) in Computer Science</span>
-                </div>
-                <span class="exp-loc">University of Westminster</span>
-                 <br><br>
-                <div class="exp-item">
-                    <span class="exp-role">Foundation Certification in Higher Education</span>
-                </div>
-                <span class="exp-loc">Informatic Institute of Technology</span>
-
-                <div class="section-title">💼 Work Experience</div>
-                <div class="exp-item">
-                    <span class="exp-role">Junior Frontend Developer</span>
-                    <span class="exp-loc">@ <a href="https://chasien.com" target="_blank" class="work-link">Chasien.com</a></span>
+                <div class="section-title reveal">🎓 Education</div>
+                <div class="timeline">
+                    <div class="timeline-item reveal">
+                        <span class="exp-role">BSc (Hons) in Computer Science</span><br>
+                        <span class="exp-loc">University of Westminster</span>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <span class="exp-role">Foundation Certification in Higher Education</span><br>
+                        <span class="exp-loc">Informatic Institute of Technology</span>
+                    </div>
                 </div>
 
-                <div class="section-title">⚡ Gallery</div>
-                
+                <div class="section-title reveal">💼 Work Experience</div>
+                <div class="timeline">
+                    <div class="timeline-item reveal">
+                        <span class="exp-role">Junior Frontend Developer</span><br>
+                        <span class="exp-loc">@ <a href="https://chasien.com" target="_blank"
+                                class="work-link">Chasien.com</a></span>
+                    </div>
+                </div>
+
+                <div class="section-title reveal">⚡ Gallery</div>
+
                 <div class="retro-gallery">
                     <div class="gallery-card">
                         <div class="gallery-img-box">
                             <img src="img/gal-01.jpeg" class="gallery-img" alt="Games">
                         </div>
-                        
                     </div>
-
                     <div class="gallery-card">
                         <div class="gallery-img-box">
                             <img src="img/gal-02.jpeg" class="gallery-img" alt="Hiking">
                         </div>
-                        
                     </div>
-
                     <div class="gallery-card">
                         <div class="gallery-img-box">
                             <img src="img/gal-03.jpeg" class="gallery-img" alt="Anime">
                         </div>
-                        
                     </div>
-
-                    
                 </div>
             </div>
         </div>
     </template>
 
+    <!-- CV -->
     <template id="tpl-cv">
         <div class="cv-wrapper">
-             <div class="cv-header-bar">
-                 <h2 style="border:none; margin:0;">RESUME_VIEWER_V1.0</h2>
-                 <a href="theunja_cv.pdf" download="Thenuja_H_Rajapaksha_CV.pdf" style="text-decoration:none;">
-                     <button style="background:var(--accent); color:var(--bg-desktop); border:none; padding:8px 16px; font-weight:bold; cursor:pointer; font-family:var(--font-clean);">⬇ DOWNLOAD CV</button>
-                 </a>
-             </div>
+            <div class="cv-header-bar">
+                <h2 style="border:none; margin:0;">RESUME_VIEWER_V2.0</h2>
+                <a href="theunja_cv.pdf" download="Thenuja_H_Rajapaksha_CV.pdf" style="text-decoration:none;">
+                    <button class="cv-download-btn">⬇ DOWNLOAD CV</button>
+                </a>
+            </div>
 
-             <div class="cv-paper">
-                 <h1>Thenuja H. Rajapaksha</h1>
-                 <div class="cv-meta">
-                     contact.thenujahansana@gmail.com | +94 72 562 5879 | linkedin.com/in/thenuja-hansana | github.com/Thenuja-Hansana | Portfolio: thenujahansana.dev
-                 </div>
+            <div class="cv-paper">
+                <h1>Thenuja H. Rajapaksha</h1>
+                <div class="cv-meta">
+                    contact.thenujahansana@gmail.com | +94 72 562 5879 | linkedin.com/in/thenuja-hansana |
+                    github.com/Thenuja-Hansana | Portfolio: thenujahansana.dev
+                </div>
 
-                 <h2>EDUCATION</h2>
-                 <div class="cv-row">
-                     <h3>University of Westminster</h3>
-                     <span class="cv-date">London, England</span>
-                 </div>
-                 <div class="cv-row">
-                     <span>BSc (Hons) in Computer Science</span>
-                     <span class="cv-date">Exp. May 2028</span>
-                 </div>
-                 <p style="font-size:14px; margin-bottom:10px;">Concentrations: Full Stack Application Development<br>
-                 Related Coursework: Data Structures & Algorithms, Software Engineering, Web Design, OOP with Java, Mobile App Dev (Kotlin)</p>
+                <h2>EDUCATION</h2>
+                <div class="cv-row">
+                    <h3>University of Westminster</h3>
+                    <span class="cv-date">London, England</span>
+                </div>
+                <div class="cv-row">
+                    <span>BSc (Hons) in Computer Science</span>
+                    <span class="cv-date">Exp. May 2028</span>
+                </div>
+                <p style="font-size:14px; margin-bottom:10px;">Concentrations: Full Stack Application Development<br>
+                    Related Coursework: Data Structures & Algorithms, Software Engineering, Web Design, OOP with Java,
+                    Mobile App Dev (Kotlin)</p>
 
-                 <div class="cv-row">
-                     <h3>Informatic Institute of Technology</h3>
-                     <span class="cv-date">Colombo 6, Sri Lanka</span>
-                 </div>
-                 <div class="cv-row">
-                     <span>Foundation Certification in Higher Education</span>
-                     <span class="cv-date">Sep 2023 - May 2024</span>
-                 </div>
-                 <p style="font-size:14px;">Concentrations: Frontend Engineering with UI & UX<br>
-                 Related Coursework: UI/UX Design, Python, SQL, Mathematics</p>
+                <div class="cv-row">
+                    <h3>Informatic Institute of Technology</h3>
+                    <span class="cv-date">Colombo 6, Sri Lanka</span>
+                </div>
+                <div class="cv-row">
+                    <span>Foundation Certification in Higher Education</span>
+                    <span class="cv-date">Sep 2023 - May 2024</span>
+                </div>
+                <p style="font-size:14px;">Concentrations: Frontend Engineering with UI & UX<br>
+                    Related Coursework: UI/UX Design, Python, SQL, Mathematics</p>
 
-                 <h2>EXPERIENCE</h2>
-                 <div class="cv-row">
-                     <h3>Chasien.com</h3>
-                     <span class="cv-date">Remote</span>
-                 </div>
-                 <div class="cv-row">
-                     <span>Junior Frontend Developer</span>
-                     <span class="cv-date">Jul 2024 - Sep 2025</span>
-                 </div>
-                 <ul>
-                     <li>Contribute to frontend development of front-stack web applications using Next.js and React.</li>
-                     <li>Delivering responsive, high-performance user interfaces using HTML, CSS, Tailwind CSS, and ES6+.</li>
-                     <li>Utilized frontend tools and workflows including TypeScript, Git, CI/CD pipelines, and modern build tools.</li>
-                 </ul>
+                <h2>EXPERIENCE</h2>
+                <div class="cv-row">
+                    <h3>Chasien.com</h3>
+                    <span class="cv-date">Remote</span>
+                </div>
+                <div class="cv-row">
+                    <span>Junior Frontend Developer</span>
+                    <span class="cv-date">Jul 2024 - Sep 2025</span>
+                </div>
+                <ul>
+                    <li>Contribute to frontend development of front-stack web applications using Next.js and React.</li>
+                    <li>Delivering responsive, high-performance user interfaces using HTML, CSS, Tailwind CSS, and ES6+.
+                    </li>
+                    <li>Utilized frontend tools and workflows including TypeScript, Git, CI/CD pipelines, and modern
+                        build tools.</li>
+                </ul>
 
-                 <h2>PROJECTS</h2>
-                 <div class="cv-row">
-                     <h3>Real-Time Stock Market App with AI Insights</h3>
-                 </div>
-                 <p>Built a production-grade stock platform to explore real-time stocks and implement live market data visualization, secure authentication, background workflows, and scalable monitored deployment.</p>
-                 <p style="font-size:14px;"><strong>Tech Stack:</strong> Next.js, React, Tailwind CSS, Supabase, Clerk, Inngest, AI APIs</p>
+                <h2>PROJECTS</h2>
+                <div class="cv-row">
+                    <h3>Real-Time Stock Market App with AI Insights</h3>
+                </div>
+                <p>Built a production-grade stock platform to explore real-time stocks and implement live market data
+                    visualization, secure authentication, background workflows, and scalable monitored deployment.</p>
+                <p style="font-size:14px;"><strong>Tech Stack:</strong> Next.js, React, Tailwind CSS, Supabase, Clerk,
+                    Inngest, AI APIs</p>
 
-                 <div class="cv-row" style="margin-top:10px;">
-                     <h3>Production API with DevOps Pipeline</h3>
-                 </div>
-                 <p>Designed and deployed a secure REST API to understand end-to-end DevOps workflows, implementing containerization, automated CI/CD pipelines and cloud infrastructure.</p>
-                 <p style="font-size:14px;"><strong>Tech Stack:</strong> Node.js, Express.js, MongoDB, Docker, Kubernetes, GitHub Actions</p>
+                <div class="cv-row" style="margin-top:10px;">
+                    <h3>Production API with DevOps Pipeline</h3>
+                </div>
+                <p>Designed and deployed a secure REST API to understand end-to-end DevOps workflows, implementing
+                    containerization, automated CI/CD pipelines and cloud infrastructure.</p>
+                <p style="font-size:14px;"><strong>Tech Stack:</strong> Node.js, Express.js, MongoDB, Docker,
+                    Kubernetes, GitHub Actions</p>
 
-                 <div class="cv-row" style="margin-top:10px;">
-                     <h3>Production Ready Backend API</h3>
-                 </div>
-                 <p>Developed and deployed a scalable backend system to gain hands-on production experience, implementing authentication, authorization, subscriptions, and email workflows.</p>
-                 <p style="font-size:14px;"><strong>Tech Stack:</strong> Node.js, Express.js, MongoDB, JWT, Arcjet, Docker, VPS Hosting</p>
+                <div class="cv-row" style="margin-top:10px;">
+                    <h3>Production Ready Backend API</h3>
+                </div>
+                <p>Developed and deployed a scalable backend system to gain hands-on production experience, implementing
+                    authentication, authorization, subscriptions, and email workflows.</p>
+                <p style="font-size:14px;"><strong>Tech Stack:</strong> Node.js, Express.js, MongoDB, JWT, Arcjet,
+                    Docker, VPS Hosting</p>
 
-                 <h2>SKILLS</h2>
-                 <p><strong>Frontend & Core:</strong> JavaScript, TypeScript, React, Next.js</p>
-                 <p><strong>Backend & Database:</strong> Node.js, Express.js, Java Spring Boot, MongoDB, PostgreSQL</p>
-                 <p><strong>DevOps & Cloud:</strong> Docker, AWS, GitHub Actions</p>
+                <h2>SKILLS</h2>
+                <p><strong>Frontend & Core:</strong> JavaScript, TypeScript, React, Next.js</p>
+                <p><strong>Backend & Database:</strong> Node.js, Express.js, Java Spring Boot, MongoDB, PostgreSQL</p>
+                <p><strong>DevOps & Cloud:</strong> Docker, AWS, GitHub Actions</p>
 
-                 <h2>REFERENCES</h2>
-                 <p><strong>Sasmith Manawadu</strong><br>
-                 Associate Software Engineer @ INTELLEON<br>
-                 Email: 888sasmithmanawadu@gmail.com | Contact: +94 74 281 9200</p>
-             </div>
+                <h2>REFERENCES</h2>
+                <p><strong>Sasmith Manawadu</strong><br>
+                    Associate Software Engineer @ INTELLEON<br>
+                    Email: 888sasmithmanawadu@gmail.com | Contact: +94 74 281 9200</p>
+            </div>
         </div>
     </template>
 
-     <template id="tpl-work">
+    <!-- WORK / PROJECTS -->
+    <template id="tpl-work">
         <div class="work-wrapper">
-            <div class="freelance-banner">
-                <strong>By the way I also Do Freelancing work on <a href="#" style="color:inherit; text-decoration: underline;">Upwork</a></strong>
-                <span style="font-size: 16px; color: var(--text-dim);">If you want to get your project done hit me up. Love to work with you :)</span>
+            <div class="freelance-banner reveal">
+                <strong>By the way I also Do Freelancing work on <a href="#"
+                        style="color:inherit; text-decoration: underline;">Upwork</a></strong>
+                <span style="font-size: 16px; color: var(--text-dim);">If you want to get your project done hit me up.
+                    Love to work with you :)</span>
             </div>
 
-            <div class="section-title">🛠️ Tools</div>
-            <div class="tools-grid">
+            <div class="section-title reveal">🛠️ Tools</div>
+            <div class="tools-grid reveal">
                 <div class="tool-box" onmouseenter="sfx.click()">VS CODE</div>
                 <div class="tool-box" onmouseenter="sfx.click()">Figma</div>
                 <div class="tool-box" onmouseenter="sfx.click()">GitHub</div>
@@ -305,58 +391,74 @@
                 <div class="tool-box" onmouseenter="sfx.click()">Postman</div>
             </div>
 
-            <div class="section-title">💻 Development Stack</div>
-            
-            <div class="stack-category">
+            <div class="section-title reveal">💻 Development Stack</div>
+
+            <div class="stack-category reveal">
                 <div class="stack-title">Frontend</div>
                 <div class="tags-container">
-                    <span class="tech-pill">React</span> <span class="tech-pill">Next.js</span> <span class="tech-pill">Tailwind CSS</span> <span class="tech-pill">Shadcn/UI</span> <span class="tech-pill">Syncfusion UI</span> <span class="tech-pill">HTML/CSS</span> <span class="tech-pill">JavaScript</span>
+                    <span class="tech-pill">React</span> <span class="tech-pill">Next.js</span> <span
+                        class="tech-pill">Tailwind CSS</span> <span class="tech-pill">Shadcn/UI</span> <span
+                        class="tech-pill">Syncfusion UI</span> <span class="tech-pill">HTML/CSS</span> <span
+                        class="tech-pill">JavaScript</span>
                 </div>
             </div>
-            
-            <div class="stack-category">
+
+            <div class="stack-category reveal">
                 <div class="stack-title">Backend</div>
                 <div class="tags-container">
-                    <span class="tech-pill">Node.js</span> <span class="tech-pill">Express.js</span> <span class="tech-pill">REST APIs</span> <span class="tech-pill">Server Actions</span> <span class="tech-pill">Inngest</span> <span class="tech-pill">Appwrite</span> <span class="tech-pill">Supabase</span>
+                    <span class="tech-pill">Node.js</span> <span class="tech-pill">Express.js</span> <span
+                        class="tech-pill">REST APIs</span> <span class="tech-pill">Server Actions</span> <span
+                        class="tech-pill">Inngest</span> <span class="tech-pill">Appwrite</span> <span
+                        class="tech-pill">Supabase</span>
                 </div>
             </div>
 
-             <div class="stack-category">
+            <div class="stack-category reveal">
                 <div class="stack-title">Mobile</div>
                 <div class="tags-container">
-                    <span class="tech-pill">React Native</span> <span class="tech-pill">Flutter</span> <span class="tech-pill">Expo</span>
+                    <span class="tech-pill">React Native</span> <span class="tech-pill">Flutter</span> <span
+                        class="tech-pill">Expo</span>
                 </div>
             </div>
 
-            <div class="stack-category">
+            <div class="stack-category reveal">
                 <div class="stack-title">Database Management</div>
                 <div class="tags-container">
-                    <span class="tech-pill">MongoDB</span> <span class="tech-pill">PostgreSQL</span> <span class="tech-pill">DynamoDB</span> <span class="tech-pill">Firestore</span> <span class="tech-pill">Redis</span>
+                    <span class="tech-pill">MongoDB</span> <span class="tech-pill">PostgreSQL</span> <span
+                        class="tech-pill">DynamoDB</span> <span class="tech-pill">Firestore</span> <span
+                        class="tech-pill">Redis</span>
                 </div>
             </div>
 
-            <div class="stack-category">
+            <div class="stack-category reveal">
                 <div class="stack-title">Version Control</div>
                 <div class="tags-container">
                     <span class="tech-pill">Git</span> <span class="tech-pill">GitHub</span>
                 </div>
             </div>
 
-            <div class="stack-category">
+            <div class="stack-category reveal">
                 <div class="stack-title">DevOps & Containerization</div>
                 <div class="tags-container">
-                    <span class="tech-pill">Docker</span> <span class="tech-pill">Kubernetes</span> <span class="tech-pill">GitHub Actions</span> <span class="tech-pill">Vercel</span> <span class="tech-pill">AWS</span> <span class="tech-pill">VPS Deployment</span>
+                    <span class="tech-pill">Docker</span> <span class="tech-pill">Kubernetes</span> <span
+                        class="tech-pill">GitHub Actions</span> <span class="tech-pill">Vercel</span> <span
+                        class="tech-pill">AWS</span> <span class="tech-pill">VPS Deployment</span>
                 </div>
             </div>
 
-            <div class="section-title">📂 Projects</div>
-            
-            <div class="section-title" style="border:none; margin-top:5px; font-size:12px; opacity:0.7;">FEATURED PROJECT</div>
-            <div class="project-card" onclick="showMaintenance()">
-                <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?finance,chart');"></div>
+            <div class="section-title reveal">📂 Projects</div>
+
+            <div class="section-title reveal" style="border:none; margin-top:5px; font-size:12px; opacity:0.7;">FEATURED
+                PROJECT</div>
+            <div class="project-card reveal" onclick="showMaintenance()" style="margin-bottom: 20px;">
+                <div class="featured-badge">★ FEATURED</div>
+                <div class="proj-banner"
+                    style="background-image: url('https://source.unsplash.com/random/800x600?finance,chart');"></div>
                 <div class="proj-info">
                     <h3 class="proj-title">Real-Time Stock Market App with AI Insights</h3>
-                    <p class="proj-brief">Developed a real-time stock market platform featuring live charts, AI-generated insights, daily news summaries, authentication, and scheduled background jobs with full production deployment.</p>
+                    <p class="proj-brief">Developed a real-time stock market platform featuring live charts,
+                        AI-generated insights, daily news summaries, authentication, and scheduled background jobs with
+                        full production deployment.</p>
                     <div class="tags-container">
                         <span class="tech-pill" style="font-size:12px;">Next.js</span>
                         <span class="tech-pill" style="font-size:12px;">React</span>
@@ -375,46 +477,73 @@
                 </div>
             </div>
 
-            <div class="section-title" style="border:none; margin-top:20px; font-size:12px; opacity:0.7;">ALL PROJECTS</div>
+            <div class="section-title reveal" style="border:none; margin-top:20px; font-size:12px; opacity:0.7;">ALL
+                PROJECTS</div>
             <div class="projects-grid">
-                
-                <div class="project-card">
+
+                <div class="project-card reveal">
                     <div class="proj-banner" style="background-image: url('img/reqruita-landing.png');"></div>
                     <div class="proj-info">
                         <h3 class="proj-title">Recruita – Anti-Cheating Desktop Application</h3>
-                        <p class="proj-brief">A cross-platform desktop application built to prevent cheating during online exams by monitoring user activity and enforcing secure assessment conditions. Led the team and handled core system design and implementation.</p>
+                        <p class="proj-brief">A cross-platform desktop application built to prevent cheating during
+                            online exams by monitoring user activity and enforcing secure assessment conditions. Led the
+                            team and handled core system design and implementation.</p>
                         <div class="tags-container">
-                            <span class="tech-pill" style="font-size:10px;">Electron</span> <span class="tech-pill" style="font-size:10px;">JavaScript</span> <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">System APIs</span> <span class="tech-pill" style="font-size:10px;">WebSockets</span> <span class="tech-pill" style="font-size:10px;">SQLite</span> <span class="tech-pill" style="font-size:10px;">Git</span>
+                            <span class="tech-pill" style="font-size:10px;">Electron</span> <span class="tech-pill"
+                                style="font-size:10px;">JavaScript</span> <span class="tech-pill"
+                                style="font-size:10px;">Node.js</span> <span class="tech-pill"
+                                style="font-size:10px;">System APIs</span> <span class="tech-pill"
+                                style="font-size:10px;">WebSockets</span> <span class="tech-pill"
+                                style="font-size:10px;">SQLite</span> <span class="tech-pill"
+                                style="font-size:10px;">Git</span>
                         </div>
                         <div class="proj-links">
                             <a href="https://reqruita.com" target="_blank" class="proj-btn">Live Site</a>
-                            <a href="https://github.com/Thenuja-Hansana/Reqruita-Landing-Page" target="_blank" class="proj-btn">Git Repo</a>
+                            <a href="https://github.com/Thenuja-Hansana/Reqruita-Landing-Page" target="_blank"
+                                class="proj-btn">Git Repo</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" >
+                <div class="project-card reveal">
                     <div class="proj-banner" style="background-image: url('img/chasien-landing.png');"></div>
                     <div class="proj-info">
                         <h3 class="proj-title">Chasien.com – Agency Website</h3>
-                        <p class="proj-brief">A production-ready agency website developed for scalability and performance, featuring a modern frontend and a secure, well-structured backend. Owned backend development and collaborated closely with the frontend team.</p>
+                        <p class="proj-brief">A production-ready agency website developed for scalability and
+                            performance, featuring a modern frontend and a secure, well-structured backend. Owned
+                            backend development and collaborated closely with the frontend team.</p>
                         <div class="tags-container">
-                            <span class="tech-pill" style="font-size:10px;">HTML</span> <span class="tech-pill" style="font-size:10px;">CSS</span> <span class="tech-pill" style="font-size:10px;">JavaScript</span>
+                            <span class="tech-pill" style="font-size:10px;">HTML</span> <span class="tech-pill"
+                                style="font-size:10px;">CSS</span> <span class="tech-pill"
+                                style="font-size:10px;">JavaScript</span>
                         </div>
                         <div class="proj-links">
-                            <a href="https://chasien.com" target="_blank" class="proj-btn" >Live Site</a>
-                            <a href="https://github.com/Thenuja-Hansana/chasien-software-agency" target="_blank" class="proj-btn" onclick="event.stopPropagation()">Git Repo</a>
+                            <a href="https://chasien.com" target="_blank" class="proj-btn">Live Site</a>
+                            <a href="https://github.com/Thenuja-Hansana/chasien-software-agency" target="_blank"
+                                class="proj-btn" onclick="event.stopPropagation()">Git Repo</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" onclick="showMaintenance()">
-                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?server,code');"></div>
+                <div class="project-card reveal" onclick="showMaintenance()">
+                    <div class="proj-banner"
+                        style="background-image: url('https://source.unsplash.com/random/800x600?server,code');"></div>
                     <div class="proj-info">
                         <h3 class="proj-title">Production-Ready Backend API</h3>
-                        <p class="proj-brief">Built a scalable REST API implementing authentication, authorization, subscriptions, background workflows, and email notifications, deployed on a production VPS with security and monitoring in place.</p>
+                        <p class="proj-brief">Built a scalable REST API implementing authentication, authorization,
+                            subscriptions, background workflows, and email notifications, deployed on a production VPS
+                            with security and monitoring in place.</p>
                         <div class="tags-container">
-                            <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">Express.js</span> <span class="tech-pill" style="font-size:10px;">MongoDB</span> <span class="tech-pill" style="font-size:10px;">JWT</span> <span class="tech-pill" style="font-size:10px;">Arcjet</span> <span class="tech-pill" style="font-size:10px;">Docker</span> <span class="tech-pill" style="font-size:10px;">ESLint</span> <span class="tech-pill" style="font-size:10px;">Prettier</span> <span class="tech-pill" style="font-size:10px;">VPS Hosting</span> <span class="tech-pill" style="font-size:10px;">Email Services</span>
+                            <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill"
+                                style="font-size:10px;">Express.js</span> <span class="tech-pill"
+                                style="font-size:10px;">MongoDB</span> <span class="tech-pill"
+                                style="font-size:10px;">JWT</span> <span class="tech-pill"
+                                style="font-size:10px;">Arcjet</span> <span class="tech-pill"
+                                style="font-size:10px;">Docker</span> <span class="tech-pill"
+                                style="font-size:10px;">ESLint</span> <span class="tech-pill"
+                                style="font-size:10px;">Prettier</span> <span class="tech-pill"
+                                style="font-size:10px;">VPS Hosting</span> <span class="tech-pill"
+                                style="font-size:10px;">Email Services</span>
                         </div>
                         <div class="proj-links">
                             <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
@@ -423,13 +552,25 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="showMaintenance()">
-                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?dashboard,analytics');"></div>
+                <div class="project-card reveal" onclick="showMaintenance()">
+                    <div class="proj-banner"
+                        style="background-image: url('https://source.unsplash.com/random/800x600?dashboard,analytics');">
+                    </div>
                     <div class="proj-info">
                         <h3 class="proj-title">Full Stack React Admin Dashboard</h3>
-                        <p class="proj-brief">Created a full-featured admin dashboard with authentication, analytics charts, data tables, AI-powered trip generation, and real-time data management for enterprise use cases.</p>
+                        <p class="proj-brief">Created a full-featured admin dashboard with authentication, analytics
+                            charts, data tables, AI-powered trip generation, and real-time data management for
+                            enterprise use cases.</p>
                         <div class="tags-container">
-                            <span class="tech-pill" style="font-size:10px;">React</span> <span class="tech-pill" style="font-size:10px;">Tailwind CSS</span> <span class="tech-pill" style="font-size:10px;">Syncfusion</span> <span class="tech-pill" style="font-size:10px;">Appwrite</span> <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">Express.js</span> <span class="tech-pill" style="font-size:10px;">AI APIs</span> <span class="tech-pill" style="font-size:10px;">Git</span> <span class="tech-pill" style="font-size:10px;">GitHub</span>
+                            <span class="tech-pill" style="font-size:10px;">React</span> <span class="tech-pill"
+                                style="font-size:10px;">Tailwind CSS</span> <span class="tech-pill"
+                                style="font-size:10px;">Syncfusion</span> <span class="tech-pill"
+                                style="font-size:10px;">Appwrite</span> <span class="tech-pill"
+                                style="font-size:10px;">Node.js</span> <span class="tech-pill"
+                                style="font-size:10px;">Express.js</span> <span class="tech-pill"
+                                style="font-size:10px;">AI APIs</span> <span class="tech-pill"
+                                style="font-size:10px;">Git</span> <span class="tech-pill"
+                                style="font-size:10px;">GitHub</span>
                         </div>
                         <div class="proj-links">
                             <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
@@ -438,13 +579,21 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="showMaintenance()">
-                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?upload,cloud');"></div>
+                <div class="project-card reveal" onclick="showMaintenance()">
+                    <div class="proj-banner"
+                        style="background-image: url('https://source.unsplash.com/random/800x600?upload,cloud');"></div>
                     <div class="proj-info">
                         <h3 class="proj-title">Next.js Image Upload App</h3>
-                        <p class="proj-brief">Built a secure image upload application with user authentication, cloud storage integration, and optimized media handling using a modern full-stack Next.js architecture.</p>
+                        <p class="proj-brief">Built a secure image upload application with user authentication, cloud
+                            storage integration, and optimized media handling using a modern full-stack Next.js
+                            architecture.</p>
                         <div class="tags-container">
-                            <span class="tech-pill" style="font-size:10px;">Next.js</span> <span class="tech-pill" style="font-size:10px;">React</span> <span class="tech-pill" style="font-size:10px;">UploadThing</span> <span class="tech-pill" style="font-size:10px;">Clerk</span> <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">Vercel</span>
+                            <span class="tech-pill" style="font-size:10px;">Next.js</span> <span class="tech-pill"
+                                style="font-size:10px;">React</span> <span class="tech-pill"
+                                style="font-size:10px;">UploadThing</span> <span class="tech-pill"
+                                style="font-size:10px;">Clerk</span> <span class="tech-pill"
+                                style="font-size:10px;">Node.js</span> <span class="tech-pill"
+                                style="font-size:10px;">Vercel</span>
                         </div>
                         <div class="proj-links">
                             <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
@@ -453,13 +602,21 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="showMaintenance()">
-                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?cinema,movie');"></div>
+                <div class="project-card reveal" onclick="showMaintenance()">
+                    <div class="proj-banner"
+                        style="background-image: url('https://source.unsplash.com/random/800x600?cinema,movie');"></div>
                     <div class="proj-info">
                         <h3 class="proj-title">React Native Movie App</h3>
-                        <p class="proj-brief">Developed a cross-platform mobile application to browse, search, and view movie details using a public API, featuring optimized data fetching and smooth navigation.</p>
+                        <p class="proj-brief">Developed a cross-platform mobile application to browse, search, and view
+                            movie details using a public API, featuring optimized data fetching and smooth navigation.
+                        </p>
                         <div class="tags-container">
-                            <span class="tech-pill" style="font-size:10px;">React Native</span> <span class="tech-pill" style="font-size:10px;">Expo</span> <span class="tech-pill" style="font-size:10px;">JavaScript</span> <span class="tech-pill" style="font-size:10px;">TMDB API</span> <span class="tech-pill" style="font-size:10px;">Appwrite</span> <span class="tech-pill" style="font-size:10px;">Custom Hooks</span>
+                            <span class="tech-pill" style="font-size:10px;">React Native</span> <span class="tech-pill"
+                                style="font-size:10px;">Expo</span> <span class="tech-pill"
+                                style="font-size:10px;">JavaScript</span> <span class="tech-pill"
+                                style="font-size:10px;">TMDB API</span> <span class="tech-pill"
+                                style="font-size:10px;">Appwrite</span> <span class="tech-pill"
+                                style="font-size:10px;">Custom Hooks</span>
                         </div>
                         <div class="proj-links">
                             <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
@@ -468,13 +625,23 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="showMaintenance()">
-                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?cloud,pipeline');"></div>
+                <div class="project-card reveal" onclick="showMaintenance()">
+                    <div class="proj-banner"
+                        style="background-image: url('https://source.unsplash.com/random/800x600?cloud,pipeline');">
+                    </div>
                     <div class="proj-info">
                         <h3 class="proj-title">Production API with DevOps Pipeline</h3>
-                        <p class="proj-brief">Designed and deployed a production-grade API with CI/CD automation, containerization, Kubernetes orchestration, testing, and secure cloud infrastructure following DevOps best practices.</p>
+                        <p class="proj-brief">Designed and deployed a production-grade API with CI/CD automation,
+                            containerization, Kubernetes orchestration, testing, and secure cloud infrastructure
+                            following DevOps best practices.</p>
                         <div class="tags-container">
-                            <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill" style="font-size:10px;">MongoDB</span> <span class="tech-pill" style="font-size:10px;">Docker</span> <span class="tech-pill" style="font-size:10px;">Kubernetes</span> <span class="tech-pill" style="font-size:10px;">GitHub Actions</span> <span class="tech-pill" style="font-size:10px;">AWS (EC2, ECR, IAM)</span> <span class="tech-pill" style="font-size:10px;">CI/CD Tools</span>
+                            <span class="tech-pill" style="font-size:10px;">Node.js</span> <span class="tech-pill"
+                                style="font-size:10px;">MongoDB</span> <span class="tech-pill"
+                                style="font-size:10px;">Docker</span> <span class="tech-pill"
+                                style="font-size:10px;">Kubernetes</span> <span class="tech-pill"
+                                style="font-size:10px;">GitHub Actions</span> <span class="tech-pill"
+                                style="font-size:10px;">AWS (EC2, ECR, IAM)</span> <span class="tech-pill"
+                                style="font-size:10px;">CI/CD Tools</span>
                         </div>
                         <div class="proj-links">
                             <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
@@ -483,13 +650,24 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="showMaintenance()">
-                    <div class="proj-banner" style="background-image: url('https://source.unsplash.com/random/800x600?software,saas');"></div>
+                <div class="project-card reveal" onclick="showMaintenance()">
+                    <div class="proj-banner"
+                        style="background-image: url('https://source.unsplash.com/random/800x600?software,saas');">
+                    </div>
                     <div class="proj-info">
                         <h3 class="proj-title">AI-Powered SaaS Platform</h3>
-                        <p class="proj-brief">Built and launched a subscription-based SaaS platform with AI-driven features, authentication, billing, session history, error monitoring, and full production deployment.</p>
+                        <p class="proj-brief">Built and launched a subscription-based SaaS platform with AI-driven
+                            features, authentication, billing, session history, error monitoring, and full production
+                            deployment.</p>
                         <div class="tags-container">
-                            <span class="tech-pill" style="font-size:10px;">Next.js</span> <span class="tech-pill" style="font-size:10px;">React</span> <span class="tech-pill" style="font-size:10px;">Tailwind CSS</span> <span class="tech-pill" style="font-size:10px;">Supabase</span> <span class="tech-pill" style="font-size:10px;">Clerk</span> <span class="tech-pill" style="font-size:10px;">Stripe</span> <span class="tech-pill" style="font-size:10px;">AI APIs</span> <span class="tech-pill" style="font-size:10px;">Sentry</span> <span class="tech-pill" style="font-size:10px;">Vercel</span>
+                            <span class="tech-pill" style="font-size:10px;">Next.js</span> <span class="tech-pill"
+                                style="font-size:10px;">React</span> <span class="tech-pill"
+                                style="font-size:10px;">Tailwind CSS</span> <span class="tech-pill"
+                                style="font-size:10px;">Supabase</span> <span class="tech-pill"
+                                style="font-size:10px;">Clerk</span> <span class="tech-pill"
+                                style="font-size:10px;">Stripe</span> <span class="tech-pill" style="font-size:10px;">AI
+                                APIs</span> <span class="tech-pill" style="font-size:10px;">Sentry</span> <span
+                                class="tech-pill" style="font-size:10px;">Vercel</span>
                         </div>
                         <div class="proj-links">
                             <div class="proj-btn" onclick="event.stopPropagation(); showMaintenance()">Live Site</div>
@@ -499,24 +677,28 @@
                 </div>
             </div>
 
-            <div class="section-title">📂 Other Dev Projects</div>
-            <ul class="other-projects">
+            <div class="section-title reveal">📂 Other Dev Projects</div>
+            <ul class="other-projects reveal">
                 <li>This website !</li>
-                <li>That's It for now, there are some more projects Im working on in the background That ill release soon hopefully.. :)</li>
-                <li>Check out my previous commercial projects on <a href="https://chasien.com" target="_blank" style="color:var(--accent)">chasien.com</a></li>
+                <li>That's It for now, there are some more projects Im working on in the background That ill release
+                    soon hopefully.. :)</li>
+                <li>Check out my previous commercial projects on <a href="https://chasien.com" target="_blank"
+                        style="color:var(--accent)">chasien.com</a></li>
             </ul>
-            
+
             <br>
-            <div style="text-align: center;">
+            <div style="text-align: center;" class="reveal">
                 <a href="#" target="_blank" class="footer-github">See more on GitHub -></a>
             </div>
         </div>
     </template>
 
+    <!-- CONTACT -->
     <template id="tpl-contact">
         <div class="contact-container">
-            <h2 style="border: none; font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -1px;">✨ YAYY! NEW MAIL ✨</h2>
-            
+            <h2 style="border: none; font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -1px;">✨
+                YAYY! NEW MAIL ✨</h2>
+
             <p class="contact-intro-text">
                 The easiest way to contact me is through email & WhatsApp!
                 I don't really check my social media messages,
@@ -525,15 +707,17 @@
 
             <div class="mail-anim">
                 <svg viewBox="0 0 24 24" width="64" height="64" fill="var(--accent)">
-                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
             </div>
 
             <div class="email-box">
-                <p style="margin: 0; font-size: 16px; color: var(--text-dim); text-transform: uppercase;">Email Me At:</p>
+                <p style="margin: 0; font-size: 16px; color: var(--text-dim); text-transform: uppercase;">Email Me At:
+                </p>
                 <strong class="email-address">contact.thenujahansana@gmail.com</strong>
-                
-                <a href="mailto:contact.thenujahansana@gmail.com" style="background: var(--accent); color: var(--bg-desktop); padding: 12px 30px; text-decoration: none; font-weight: 800; display: inline-block; border-radius: 6px; font-size: 16px; margin-top: 10px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+                <a href="mailto:contact.thenujahansana@gmail.com" class="mail-cta-btn">
                     ✉️ OPEN MAIL APP
                 </a>
             </div>
@@ -551,37 +735,58 @@
         </div>
     </template>
 
+    <!-- LINKS -->
     <template id="tpl-links">
         <h2 style="text-align:center; margin-bottom:20px;">// CONNECT WITH ME</h2>
         <div class="social-grid">
-            <a href="https://www.linkedin.com/in/thenuja-rajapaksha/" target="_blank" class="social-link" title="LinkedIn">
-                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <a href="https://www.linkedin.com/in/thenuja-rajapaksha/" target="_blank" class="social-link"
+                title="LinkedIn">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                </svg>
                 <span>LinkedIn</span>
             </a>
             <a href="https://github.com/Thenuja-Hansana" target="_blank" class="social-link" title="GitHub">
-                <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                </svg>
                 <span>GitHub</span>
             </a>
             <a href="https://x.com/ThenujaCodes" target="_blank" class="social-link" title="Twitter / X">
-                <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23z" />
+                </svg>
                 <span>Twitter</span>
             </a>
             <a href="https://discord.gg/WWpRbBgH" target="_blank" class="social-link" title="Discord">
-                <svg viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.6853-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.6853-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419z" />
+                </svg>
                 <span>Discord</span>
             </a>
             <a href="https://www.youtube.com/@ThenujaCodes" target="_blank" class="social-link" title="YouTube">
-                <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73z" />
+                </svg>
                 <span>YouTube</span>
             </a>
             <a href="https://www.instagram.com/thenuja_rj/" target="_blank" class="social-link" title="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z" />
+                </svg>
                 <span>Instagram</span>
             </a>
         </div>
     </template>
 
     <script src="script.js"></script>
-    
+
 </body>
+
 </html>
