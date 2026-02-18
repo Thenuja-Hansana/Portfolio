@@ -41,6 +41,11 @@
     --particle-color: 79, 70, 229;
     --gradient-start: #ede9fe;
     --gradient-end: #e0e7ff;
+
+    --orb-1: hsla(240, 85%, 70%, 0.3);
+    --orb-2: hsla(280, 80%, 72%, 0.25);
+    --orb-3: hsla(320, 75%, 73%, 0.22);
+    --orb-4: hsla(210, 85%, 68%, 0.28);
 }
 
 /* DARK MODE */
@@ -75,6 +80,11 @@
     --particle-color: 129, 140, 248;
     --gradient-start: #0f0a2e;
     --gradient-end: #020617;
+
+    --orb-1: hsla(260, 80%, 45%, 0.35);
+    --orb-2: hsla(290, 75%, 40%, 0.3);
+    --orb-3: hsla(330, 70%, 42%, 0.25);
+    --orb-4: hsla(250, 80%, 42%, 0.32);
 }
 
 /* ==========================================
@@ -2067,6 +2077,57 @@ h2 {
         grid-template-columns: 1fr;
     }
 
+    /* CV mobile responsive */
+    .cv-wrapper {
+        padding: 10px !important;
+    }
+
+    .cv-header-bar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .cv-paper {
+        padding: 20px 15px !important;
+        font-size: 14px !important;
+    }
+
+    .cv-paper h1 {
+        font-size: 22px !important;
+    }
+
+    .cv-paper h2 {
+        font-size: 15px !important;
+    }
+
+    .cv-paper h3 {
+        font-size: 14px !important;
+    }
+
+    .cv-paper .cv-row {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .cv-paper .cv-date {
+        font-size: 12px !important;
+    }
+
+    .cv-paper .cv-meta {
+        font-size: 12px !important;
+        word-break: break-word;
+    }
+
+    .cv-paper ul {
+        margin-left: 15px;
+        font-size: 13px;
+    }
+
+    .cv-paper p {
+        font-size: 13px !important;
+    }
+
     .ttt-board {
         gap: 6px !important;
     }
@@ -2099,6 +2160,22 @@ h2 {
 .menu-game {
     padding-left: 30px !important;
     font-size: 18px !important;
+}
+
+.highlight-pulse {
+    animation: gamePulse 0.6s ease infinite alternate;
+    background: var(--accent) !important;
+    color: #fff !important;
+}
+
+@keyframes gamePulse {
+    from {
+        box-shadow: 0 0 0 0 var(--accent-glow);
+    }
+
+    to {
+        box-shadow: 0 0 20px 4px var(--accent-glow);
+    }
 }
 
 /* ==========================================

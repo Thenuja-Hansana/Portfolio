@@ -159,6 +159,8 @@ class ParticleSystem {
 }
 
 
+
+
 /* ==========================================
  * SPLASH SCREEN — TYPEWRITER BOOT
  * ========================================== */
@@ -278,7 +280,8 @@ function initScrollReveal(container) {
     }, { root: container, threshold: 0.1 });
 
     reveals.forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.08}s`;
+        // Stagger in small groups of 5, not cumulatively across all elements
+        el.style.transitionDelay = `${(i % 5) * 0.06}s`;
         observer.observe(el);
     });
 }
@@ -535,6 +538,31 @@ document.getElementById('btn-theme').onclick = function () {
     setTimeout(() => { flash.remove(); }, 500);
 
     body.setAttribute('data-theme', next);
+};
+
+/* ==========================================
+ * OPEN GAMES FROM ABOUT SECTION
+ * ========================================== */
+window.openGamesMenu = function () {
+    // Open start menu
+    const menu = document.getElementById('start-menu');
+    if (menu && !menu.classList.contains('show')) {
+        menu.classList.add('show');
+    }
+
+    // Highlight game items
+    const gameItems = menu.querySelectorAll('.menu-game');
+    gameItems.forEach(item => {
+        item.classList.add('highlight-pulse');
+        setTimeout(() => item.classList.remove('highlight-pulse'), 2000);
+    });
+
+    // Also highlight the divider label
+    const divider = menu.querySelector('.menu-divider');
+    if (divider) {
+        divider.classList.add('highlight-pulse');
+        setTimeout(() => divider.classList.remove('highlight-pulse'), 2000);
+    }
 };
 
 
